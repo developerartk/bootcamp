@@ -1,0 +1,57 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <title>New User</title>
+</head>
+
+<body>
+<h2>Please, fill the form: </h2>
+
+<form th:action="@{/users/create}" th:object="${user}" th:method="post">
+    <table>
+
+        <tr>
+            <th>
+                <label for="firstname">First name: </label>
+            </th>
+            <td>
+                <input id="firstname" type="text" th:field="*{firstName}"/>
+                <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">FirstName Error</div>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="lastname">Last name: </label>
+            </th>
+            <td>
+                <input id="lastname" type="text" th:field="*{lastName}"/>
+                <div th:if="${#fields.hasErrors('LastName')}" th:errors="*{lastName}">LastName Error</div>
+            </td>
+        </tr>
+        
+
+        <tr>
+            <th>
+                <label for="email">Email: </label>
+            </th>
+            <td>
+                <input id="email" type="text" th:field="*{email}"/>
+                <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
+            </td>
+        </tr>
+
+
+    </table>
+    <input type="submit" value="Add user"/>
+</form>
+
+<a th:href="@{/users/all}">
+    <button>Go to users list</button>
+</a>
+
+</body>
+
+</html>

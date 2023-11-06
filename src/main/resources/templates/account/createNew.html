@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <title>Registration</title>
+</head>
+
+<body>
+<h2>Please, fill the form: </h2>
+
+<form th:action="@{/account/finishRegistration}" th:object="${account}" th:method="post">
+    <table>
+
+        <tr>
+            <th>
+                <label for="login">Login: </label>
+            </th>
+            <td>
+                <input id="login" type="text" th:field="*{login}"/>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="password">Password: </label>
+            </th>
+            <td>
+                <input id="password" type="password" th:field="*{password}"/>
+            </td>
+        </tr>
+        
+
+        <tr>
+            <th>
+                <label for="email">Email: </label>
+            </th>
+            <td>
+                <input id="email" type="text" th:field="*{email}"/>
+            </td>
+        </tr>
+
+
+    </table>
+    <input type="submit" value="Finish registration"/>
+</form>
+
+</body>
+

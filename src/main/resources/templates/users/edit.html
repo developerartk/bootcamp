@@ -1,0 +1,61 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <title>Edit Client</title>
+</head>
+
+<body>
+<h2>Update client info</h2>
+
+<form th:action="@{/clients/{id}/update(id=${client.getId()})}" th:object="${client}" th:method="post">
+    <table>
+
+        <tr>
+            <th>
+                <label for="firstname">New first name: </label>
+            </th>
+            <td>
+                <input id="firstname" type="text" th:field="*{firstName}" value="${client.getFirstName()}"/>
+                <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">FirstName Error</div>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="lastname">New last name: </label>
+            </th>
+            <td>
+                <input id="lastname" type="text" th:field="*{lastName}" value="${client.getLastName()}"/>
+                <div th:if="${#fields.hasErrors('LastName')}" th:errors="*{lastName}">LastName Error</div>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="email">New Email: </label>
+            </th>
+            <td>
+                <input id="email" type="text" th:field="*{email}" value="${client.getEmail()}"/>
+                <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
+            </td>
+        </tr>
+
+
+    </table>
+
+    <input type="submit" value="Update client"/>
+</form>
+
+<a th:href="@{/clients/all}">
+    <button>Go to users list</button>
+</a>
+
+
+
+
+
+</body>
+
+</html>

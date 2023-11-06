@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <title>Config</title>
+</head>
+
+<body>
+<h2>Configuration</h2>
+
+<table>
+	
+	<tr>
+        <th>Email</th>
+        <td th:text="${account.getLogin()}"> Login </td>
+    </tr>
+    
+    	<tr>
+        <th>Configuration</th>
+        <td th:text="${config.getConfigName}"> Configuration </td>
+    </tr>
+	
+</table>
+
+
+
+<form th:action="@{/account/{id}/config/update(id=${account.getId()})}">
+    <button>
+		Update configuration
+    </button>
+</form>
+
+</body>
+
+</html>

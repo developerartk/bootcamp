@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <title>Accounts</title>
+</head>
+
+<body>
+<h2>Registered Accounts</h2>
+
+<table style="width:700px"
+        border="1px solid black">
+
+    <tr>
+        <th>Id</th>
+        <th>Login</th>
+        <th>Email</th>
+    </tr>
+
+    <tr th:each="account: ${accounts}">
+        <td>
+            <p th:text="${account.getId()}"
+            	th:href="@{{id}(id=${account.getId()})}"/>
+        </td>
+
+        <td>
+           <a th:text="${account.getLogin()}"
+                th:href="@{{id}(id=${account.getId()})}"/>
+        </td>
+
+        <td>
+            <p th:text="${account.getEmail()}"/>
+        </td>
+
+    </tr>
+
+</table>
+
+<p/>
+
+</body>
+
+</html>
