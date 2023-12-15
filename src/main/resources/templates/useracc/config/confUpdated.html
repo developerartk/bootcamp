@@ -1,0 +1,24 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <title>Updated</title>
+</head>
+
+<body>
+
+<p>Updated
+</p>
+
+<a th:href="@{/useracc/{id}(id=${account.getId()})}">
+    <button>Back to profile page</button>
+</a>
+<br><br>
+<a th:href="@{/useracc/{id}/config(id=${account.getId()})}">
+    <button>Back to config page</button>
+</a>
+
+</body>
+
+</html>

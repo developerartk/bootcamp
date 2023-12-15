@@ -1,24 +1,19 @@
 package com.artur.assignment.singleton;
 
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.artur.assignment.fabric.NotificationsCenter;
-import com.artur.assignment.fabric.senders.EmailSender;
-import com.artur.assignment.fabric.senders.PushSender;
-import com.artur.assignment.fabric.senders.SMSSender;
 import com.artur.assignment.fabric.senders.Sender;
-import com.artur.assignment.model.PrivateAccount;
 
 @Component
 public class AppConfig {
 	private static AppConfig configInstance;
 	private static String configName = "Configuration 1";
-	private static NotificationsCenter notifCent;	//private Map<String, String> entryLog;
+	private static NotificationsCenter notifCenter = new NotificationsCenter();	
 	
 	private AppConfig() {
 		
@@ -37,19 +32,35 @@ public class AppConfig {
 	}
 	
 	public String getConfigName(){
-		return configName +  "   ->    " + configInstance.hashCode();
-	}
+		System.out.println(configName +  "   ->    " + configInstance.hashCode());
+        return configName;
+    }
 	
 	
-	@Autowired
-	public void setNotifCent(NotificationsCenter notifCent) {
-		this.notifCent = notifCent;
-		notifCent.addNotificators();
-	}
 	
-	
+	//////////////////////
+	//Notifications setup
 	public HashMap<Sender, Boolean> getNotificators(){
-		return notifCent.getNotificators();
+		System.out.println("Size: " + notifCenter.getNotificators().size());
+		return notifCenter.getNotificators();
+	}
+	
+	
+
+	//In future update so, that there would be option to setup from view instead of console
+	public void setNotifications() {
+		for(Entry<Sender, Boolean> notif : notifCenter.getNotificators().entrySet()) {
+			String key = notif.getKey().toString();
+			System.out.println(key);
+			Scanner scan = new Scanner(System.in);
+			Boolean check = scan.nextBoolean();
+			notif.setValue(check);
+		}
+	}
+	
+	
+	public void sendNotifications(){
+		notifCenter.sendNotifications();
 	}
 	
 }

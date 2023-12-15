@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <title>Cart</title>
+</head>
+
+<body>
+
+
+
+<p/>
+<form th:action="@{/order/checkout(totalAmount=${order})}" th:object="${order}">
+
+    <label for="sum">Total amount: </label>
+    <input id="sum" type="number" name="sum" th:field="*{sum}">
+
+    <button type="submit">Checkout
+    </button>
+</form>
+
+
+
+<a th:href="@{/main}">
+    <button>Main page</button>
+</a>
+
+</body>
+
+</html>

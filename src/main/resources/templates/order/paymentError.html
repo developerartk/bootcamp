@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <title>Cart</title>
+</head>
+
+<body>
+
+<h2>Bad luck!!!</h2>
+<h3 th:text="${errorMessage}">!</h3>
+
+<a th:href="@{/order/cart}">
+    <button>Try again</button>
+</a>
+
+<p/>
+
+<a th:href="@{/main}">
+    <button>Main page</button>
+</a>
+
+</body>
+
+</html>

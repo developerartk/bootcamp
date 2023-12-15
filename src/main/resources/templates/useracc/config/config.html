@@ -1,0 +1,40 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <title>Config</title>
+</head>
+
+<body>
+<h2>Configuration</h2>
+
+<table>
+	
+	<tr>
+        <th>Email</th>
+        <td th:text="${account.getEmail()}"> Login </td>
+    </tr>
+    
+    	<tr>
+        <th>Configuration</th>
+        <td th:text="${config.getConfigName()}"> Configuration </td>
+    </tr>
+	
+</table>
+
+
+
+<form th:action="@{/useracc/{id}/config/update(id=${account.getId()})}">
+    <button>
+		Update configuration
+    </button>
+</form>
+<p/>
+<a th:href="@{/useracc/{id}(id=${account.getId()})}">
+    <button>Back to profile page</button>
+</a>
+
+</body>
+
+</html>

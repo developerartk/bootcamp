@@ -34,6 +34,11 @@ public class NotificationsCenter {
 	
 	
 	public HashMap<Sender, Boolean> getNotificators(){
+		if(notifications.size() == 0) {
+			addNotificators();
+		}else {
+			notifications = notifications;
+		}
 		return notifications;
 	}
 

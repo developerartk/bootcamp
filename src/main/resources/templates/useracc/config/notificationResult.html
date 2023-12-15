@@ -1,0 +1,33 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <title>Notifications config</title>
+</head>
+
+<body>
+	
+	
+<h2>Notifications sent</h2>
+
+<table>
+    <tr th:each="notification : ${notifications}">
+        <td>
+            <p th:if="${#bools.isTrue(notification.value)}" th:text="${notification.key}"/>
+        </td>
+    </tr>
+</table>
+
+<a th:href="@{/useracc/{id}(id=${account.getId()})}">
+    <button>Back to account profile</button>
+</a>
+
+
+
+
+
+</body>
+
+</html>
+    

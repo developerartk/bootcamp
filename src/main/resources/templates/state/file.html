@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <title>Files </title>
+</head>
+
+
+<form th:object="${account}"
+      th:action="@{/useracc/{id}/delete(id=${account.getId()})}">
+    <button>Delete user</button>
+</form>
+
+
+<p/>
+<p/> Depending on user state different options are allowed
+
+<a th:href="@{/state/newFile}">
+    <button>Create new file</button>
+</a>
+
+<p/>
+
+<a th:href="@{/state/readFile}">
+    <button>Read file</button>
+</a>
+
+<p/>
+
+<a th:href="@{/state/modifyFile}">
+    <button>Modify file</button>
+</a>
+
+<p/>
+<a th:href="@{/main}">
+    <button>Exit</button>
+</a>
+
+</body>
+
+</html>

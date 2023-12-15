@@ -1,0 +1,61 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <title>Registration</title>
+</head>
+
+<body>
+<h2>Please, fill the form: </h2>
+
+<form th:action="@{/useracc/saveToDB}" th:object="${userAccount}" th:method="post">
+    <table>
+
+        <tr>
+            <th>
+                <label for="email">Email: </label>
+            </th>
+            <td>
+                <input id="email" type="text" th:field="*{email}"/>
+            </td>
+        </tr>
+
+        <tr>
+            <th>
+                <label for="password">Password: </label>
+            </th>
+            <td>
+                <input id="password" type="password" th:field="*{password}"/>
+            </td>
+        </tr>
+        
+
+        <tr>
+            <th>
+                <label for="name">Name: </label>
+            </th>
+            <td>
+                <input id="name" type="text" th:field="*{name}"/>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                <label for="status">State: </label>
+            </th>
+            <td>
+                <select id="status" name="status" th:field="*{status}">
+                    <option th:each="stateOp : ${stateOptions}"
+                            th:value="${stateOp}" th:text="${stateOp}" >
+                    </option>
+                </select>
+            </td>
+        </tr>
+
+
+    </table>
+    <input type="submit" value="Finish registration"/>
+</form>
+
+</body>
+

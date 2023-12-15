@@ -1,0 +1,87 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <title th:text="'user ' + ${account.getId()}"></title>
+</head>
+
+<h2>Account info</h2>
+
+<table style="width:250px"
+       border="solid black">
+
+    <tr>
+        <th>Name</th>
+        <td th:text="${account.getName()}"> Email </td>
+    </tr>
+
+
+    <tr>
+        <th>Email</th>
+        <td th:text="${account.getEmail()}"> Email </td>
+    </tr>
+
+    <tr>
+        <th>Status</th>
+        <td th:text="${account.getStatus()}"> Status </td>
+    </tr>
+
+
+</table>
+
+</div>
+
+
+
+<p/>
+
+<p/>
+
+<a th:href="@{/useracc/all}">
+    <button>All users</button>
+</a>
+
+<p/>
+
+<form th:method="post" th:object="${account}"
+      th:action="@{/useracc/{id}/delete(id=${account.getId()})}">
+    <button>Delete user</button>
+</form>
+
+<br>
+<a th:href="@{/useracc/{id}/setnotifications(id=${account.getId()})}">
+    <button>Setup Notifications</button>
+</a>
+
+<p/>
+<a th:href="@{/useracc/{id}/config(id=${account.getId()})}">
+    <button>Account configuration</button>
+</a>
+
+<p/>
+
+<a th:href="@{/order/cart}">
+    <button>Online shopping</button>
+</a>
+
+<br>
+
+<!--
+<p/>State pattern:
+
+<a th:href="@{/state/file}">
+    <button>State</button>
+</a>
+<p/>
+-->
+
+
+<p/>
+<a th:href="@{/main}">
+    <button>Exit</button>
+</a>
+
+</body>
+
+</html>
